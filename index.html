@@ -125,7 +125,36 @@
         gap: 0.5rem;
       }
     }
+
+    .social-floating {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem;
+  border-radius: 8px 0 0 8px;
+  z-index: 999;
+}
+
+.social-floating a img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s, filter 0.3s;
+  filter: invert(1);
+}
+
+.social-floating a img:hover {
+  transform: scale(1.2);
+  filter: invert(69%) sepia(74%) saturate(624%) hue-rotate(1deg) brightness(95%) contrast(90%);
+}
   </style>
+
+
+
 </head>
 <body>
   <header>
@@ -151,10 +180,11 @@
     <section id="noticias">
       <h2>Noticias</h2>
       <ul>
-        <li><strong>Real Madrid gana la Champions 2025</strong> - Histórico triunfo con gol de último minuto.</li>
-        <li><strong>Messi se despide del fútbol</strong> - Una carrera legendaria llega a su fin.</li>
-        <li><strong>Brasil anuncia su plantilla para la Copa América</strong> - Grandes sorpresas entre los convocados.</li>
+        <li><strong>Inter y PSG a la Gran Final de MUNICH 2025</strong> - Ambos equipos eliminando a los favotitos.</li>
+        <li><strong>Deportivo LMS</strong> - Luis Suarez y Leo Messi inician Club de Futbol Profesional en Uruguay.</li>
+        <li><strong>Brasil anuncia su plantilla para laS fechas FIFA</strong> - Grandes sorpresas entre los convocados.</li>
       </ul>
+
       <a href="#" class="btn">Ver más noticias</a>
     </section>
 
@@ -179,5 +209,20 @@
   <footer>
     &copy; 2025 Futbol Code FC. Todos los derechos reservados.
   </footer>
+
+<!-- Redes sociales flotantes -->
+<div class="social-floating">
+  <a href="https://www.instagram.com/futbol_code_fc?igsh=cTNnZ2dpMHczMHhq&utm_source=qr" target="_blank" aria-label="Instagram">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" />
+  </a>
+  <a href="https://www.facebook.com/share/1AfDGYKHp3/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" />
+  </a>
+  <a href="https://youtube.com/@futbol_code-fc?si=OWh3PFdQX2sU8dYd" target="_blank" aria-label="YouTube">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" />
+  </a>
+</div>
+
+
 </body>
 </html>

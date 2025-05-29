@@ -1,177 +1,183 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2761
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Futbol Code FC</title>
+  <style>
+    :root {
+      --azul: #002147;
+      --grana: #A50044;
+      --dorado: #FDB913;
+      --blanco: #ffffff;
+      --gris: #f4f4f4;
+    }
 
-\f0\fs24 \cf0 <!DOCTYPE html>\
-<html lang="es">\
-<head>\
-  <meta charset="UTF-8" />\
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>\
-  <title>Futbol Code FC</title>\
-  <style>\
-    :root \{\
-      --verde: #006400;\
-      --verde-oscuro: #003300;\
-      --blanco: #ffffff;\
-      --gris: #f4f4f4;\
-      --gris-oscuro: #333;\
-    \}\
-\
-    * \{\
-      box-sizing: border-box;\
-      margin: 0;\
-      padding: 0;\
-    \}\
-\
-    body \{\
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\
-      background-color: var(--gris);\
-      color: var(--gris-oscuro);\
-    \}\
-\
-    header \{\
-      background-color: var(--verde);\
-      color: var(--blanco);\
-      padding: 1.5rem;\
-      text-align: center;\
-    \}\
-\
-    nav \{\
-      background-color: var(--verde-oscuro);\
-      display: flex;\
-      justify-content: center;\
-      gap: 2rem;\
-      padding: 1rem 0;\
-    \}\
-\
-    nav a \{\
-      color: var(--blanco);\
-      text-decoration: none;\
-      font-weight: bold;\
-      transition: color 0.3s ease;\
-    \}\
-\
-    nav a:hover \{\
-      color: yellow;\
-    \}\
-\
-    main \{\
-      padding: 2rem;\
-      max-width: 900px;\
-      margin: auto;\
-    \}\
-\
-    section \{\
-      margin-bottom: 3rem;\
-    \}\
-\
-    h2 \{\
-      color: var(--verde-oscuro);\
-      margin-bottom: 1rem;\
-      border-bottom: 2px solid var(--verde);\
-      display: inline-block;\
-      padding-bottom: 0.5rem;\
-    \}\
-\
-    .btn \{\
-      background-color: var(--verde);\
-      color: white;\
-      padding: 0.7rem 1.5rem;\
-      border: none;\
-      border-radius: 5px;\
-      text-decoration: none;\
-      font-weight: bold;\
-      cursor: pointer;\
-      transition: background 0.3s;\
-    \}\
-\
-    .btn:hover \{\
-      background-color: #228B22;\
-    \}\
-\
-    footer \{\
-      background-color: var(--verde-oscuro);\
-      color: white;\
-      text-align: center;\
-      padding: 1rem;\
-      position: relative;\
-    \}\
-\
-    form \{\
-      display: flex;\
-      flex-direction: column;\
-      gap: 1rem;\
-      max-width: 500px;\
-      margin: auto;\
-    \}\
-\
-    input, textarea \{\
-      padding: 0.7rem;\
-      border: 1px solid #ccc;\
-      border-radius: 5px;\
-      font-size: 1rem;\
-    \}\
-\
-    @media (max-width: 600px) \{\
-      nav \{\
-        flex-direction: column;\
-        gap: 0.5rem;\
-      \}\
-    \}\
-  </style>\
-</head>\
-<body>\
-  <header>\
-    <h1>Futbol Code FC</h1>\
-    <p>Noticias, historias y an\'e1lisis del f\'fatbol de clubes y selecciones</p>\
-  </header>\
-\
-  <nav>\
-    <a href="#inicio">Inicio</a>\
-    <a href="#noticias">Noticias</a>\
-    <a href="#historias">Historias</a>\
-    <a href="#contacto">Contacto</a>\
-  </nav>\
-\
-  <main>\
-    <section id="inicio">\
-      <h2>Inicio</h2>\
-      <p>\'a1Bienvenido a <strong>Futbol Code FC</strong>! Aqu\'ed encontrar\'e1s las \'faltimas noticias del f\'fatbol mundial, historias \'e9picas, an\'e1lisis t\'e1cticos y contenido exclusivo sobre clubes y selecciones.</p>\
-    </section>\
-\
-    <section id="noticias">\
-      <h2>Noticias</h2>\
-      <ul>\
-        <li><strong>Real Madrid gana la Champions 2025</strong> - Hist\'f3rico triunfo con gol de \'faltimo minuto.</li>\
-        <li><strong>Messi se despide del f\'fatbol</strong> - Una carrera legendaria llega a su fin.</li>\
-        <li><strong>Brasil anuncia su plantilla para la Copa Am\'e9rica</strong> - Grandes sorpresas entre los convocados.</li>\
-      </ul>\
-      <a href="#" class="btn">Ver m\'e1s noticias</a>\
-    </section>\
-\
-    <section id="historias">\
-      <h2>Historias</h2>\
-      <p>\'bfConoces la historia del Maracanazo? \'bfO el debut de Pel\'e9 en Suecia 1958? Aqu\'ed te contamos los momentos inolvidables del f\'fatbol.</p>\
-      <a href="#" class="btn">Explorar historias</a>\
-    </section>\
-\
-    <section id="contacto">\
-      <h2>Contacto</h2>\
-      <p>\'bfTienes noticias, ideas o sugerencias? \'a1Escr\'edbenos!</p>\
-      <form>\
-        <input type="text" placeholder="Tu nombre" required />\
-        <input type="email" placeholder="Tu correo electr\'f3nico" required />\
-        <textarea rows="5" placeholder="Escribe tu mensaje aqu\'ed..." required></textarea>\
-        <button type="submit" class="btn">Enviar mensaje</button>\
-      </form>\
-    </section>\
-  </main>\
-\
-  <footer>\
-    &copy; 2025 Futbol Code FC. Todos los derechos reservados.\
-  </footer>\
-</body>\
-</html>}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, var(--azul), var(--grana));
+      color: var(--blanco);
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    header img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    nav {
+      background-color: var(--azul);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+    }
+
+    nav a {
+      color: var(--dorado);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      color: var(--dorado);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--dorado);
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+
+    p, li, input, textarea {
+      color: var(--blanco);
+    }
+
+    .btn {
+      background-color: var(--dorado);
+      color: black;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #ffcc33;
+    }
+
+    footer {
+      background-color: var(--grana);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      position: relative;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    input, textarea {
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Aquí va el logo -->
+    <img src="logo.png" alt="Logo Futbol Code FC" />
+    <h1>Futbol Code FC</h1>
+    <p>Noticias, historias y análisis del fútbol de clubes y selecciones</p>
+  </header>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#noticias">Noticias</a>
+    <a href="#historias">Historias</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <main>
+    <section id="inicio">
+      <h2>Inicio</h2>
+      <p>¡Bienvenido a <strong>Futbol Code FC</strong>! Aquí encontrarás las últimas noticias del fútbol mundial, historias épicas, análisis tácticos y contenido exclusivo sobre clubes y selecciones.</p>
+    </section>
+
+    <section id="noticias">
+      <h2>Noticias</h2>
+      <ul>
+        <li><strong>Real Madrid gana la Champions 2025</strong> - Histórico triunfo con gol de último minuto.</li>
+        <li><strong>Messi se despide del fútbol</strong> - Una carrera legendaria llega a su fin.</li>
+        <li><strong>Brasil anuncia su plantilla para la Copa América</strong> - Grandes sorpresas entre los convocados.</li>
+      </ul>
+      <a href="#" class="btn">Ver más noticias</a>
+    </section>
+
+    <section id="historias">
+      <h2>Historias</h2>
+      <p>¿Conoces la historia del Maracanazo? ¿O el debut de Pelé en Suecia 1958? Aquí te contamos los momentos inolvidables del fútbol.</p>
+      <a href="#" class="btn">Explorar historias</a>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>¿Tienes noticias, ideas o sugerencias? ¡Escríbenos!</p>
+      <form>
+        <input type="text" placeholder="Tu nombre" required />
+        <input type="email" placeholder="Tu correo electrónico" required />
+        <textarea rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+        <button type="submit" class="btn">Enviar mensaje</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Futbol Code FC. Todos los derechos reservados.
+  </footer>
+</body>
+</html>

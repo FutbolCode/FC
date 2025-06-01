@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Futbol Code FC - Noticias</title>
+  <style>
+    :root {
+      --azul: #002147;
+      --grana: #A50044;
+      --dorado: #FDB913;
+      --blanco: #ffffff;
+      --gris: #f4f4f4;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, var(--azul), var(--grana));
+      color: var(--blanco);
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    header img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    nav {
+      background-color: var(--azul);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+    }
+
+    nav a {
+      color: var(--dorado);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      color: var(--dorado);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--dorado);
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+
+    h3 a {
+      text-decoration: none;
+      color: var(--dorado);
+      transition: color 0.3s ease;
+    }
+    h3 a:hover {
+      color: var(--blanco);
+    }
+
+    p {
+      margin: 0.5rem 0 1rem 0;
+      color: var(--blanco);
+    }
+
+    .btn {
+      background-color: var(--dorado);
+      color: black;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
+    .btn:hover {
+      background-color: #ffcc33;
+    }
+
+    footer {
+      background-color: var(--grana);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      position: relative;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin-bottom: 30px;
+    }
+
+    ul li img {
+      width: 320px;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      ul li img {
+        width: 100%;
+      }
+    }
+
+    .social-floating {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 0.5rem;
+      border-radius: 8px 0 0 8px;
+      z-index_v1: 999;
+    }
+
+    .social-floating a img {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s, filter 0.3s;
+      filter: invert(1);
+    }
+
+    .social-floating a img:hover {
+      transform: scale(1.2);
+      filter: invert(69%) sepia(74%) saturate(624%) hue-rotate(1deg) brightness(95%) contrast(90%);
+    }
+  
+/* Para el estilo de las informaciones*/
+.grid-noticias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 1000px) {
+  .grid-noticias {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-noticias {
+    grid-template-columns: 1fr;
+  }
+}
+
+.noticia {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: var(--blanco);
+}
+
+.noticia:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.noticia h3 {
+  color: var(--dorado);
+  margin-bottom: 0.8rem;
+  font-size: 1.3rem;
+}
+
+.noticia p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.noticia iframe, .noticia img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="WEB" />
+    <h1>Futbol Code FC</h1>
+    <p>Noticias, historias y análisis del fútbol de clubes y selecciones</p>
+  </header>
+
+  <nav>
+    <a href="index_v1.html#inicio">Inicio</a>
+    <a href="noticias.html#noticias">Noticias</a>
+    <a href="historias.html#historias">Historias</a>
+    <a href="contacto.html#contacto">Contacto</a>
+  </nav>
+
+  <main>
+    <section id="noticias">
+  <h2>Noticias</h2>
+
+  <div class="grid-noticias">
+    
+    <article class="noticia">
+      <h3>Inter y PSG a la Gran Final de MUNICH 2025</h3>
+      <p>Ambos equipos eliminando a los favoritos en una emocionante semifinal.</p>
+      <iframe width="320" height="180" src="https://www.youtube.com/embed/bq2xItPoJ4g" 
+        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </article>
+
+    <article class="noticia">
+      <h3>Deportivo LMS - Luis Suárez y Messi</h3>
+      <p>Inician un club profesional en Uruguay con una gran visión de futuro.</p>
+      <iframe width="320" height="180" src="https://www.youtube.com/embed/3SAcFFHmbXY" 
+        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </article>
+
+    <article class="noticia">
+      <h3>Brasil anuncia su plantilla para fechas FIFA</h3>
+      <p>Grandes sorpresas y renovaciones en la selección brasileña.</p>
+      <iframe width="320" height="180" src="https://www.youtube.com/embed/5qap5aO4i9A" 
+        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </article>
+
+    <article class="noticia">
+      <h3>Gran Final de MUNICH 2025</h3>
+      <p>Los detalles completos del evento más esperado de la temporada.</p>
+      <img src="UEL - Final1.png" alt="Final Munich 2025" style="width:100%; border-radius: 8px; object-fit: cover;">
+    </article>
+
+
+    <article class="noticia">
+      <h3>Cole Palmer encendido en la final del la UEL</h3>
+      <p>El chico frio dío una exibición de buen Futbol y su equipo se llevó el trofeo a casa.</p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/PU6Vg9iGEyA?si=wR2P01DENIsWMKxh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </article>
+
+    <article class="noticia">
+      <h3>Inter de Leo Messi y Luis Suarez ganan 4-2</h3>
+      <p>Con doblete de Messi y Suares el Inter de Miami se impone sobre Montreal y volvieron a la victoria .</p>
+      <iframe width="320" height="180" src="https://www.youtube.com/embed/3SAcFFHmbXY" 
+        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </article>
+  </div>
+
+  <div style="text-align: left; margin-top: 1.5rem;">
+    <a href="noticias.html" class="btn">Ver más noticias</a>
+  </div>
+</section>
+
+  </main>
+
+  <footer>
+    &copy; 2025 Futbol Code FC. Todos los derechos reservados.
+  </footer>
+
+  <div class="social-floating">
+    <a href="https://www.instagram.com/futbol_code_fc?igsh=cTNnZ2dpMHczMHhq&utm_source=qr" target="_blank" aria-label="Instagram">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" />
+    </a>
+    <a href="https://www.facebook.com/share/1AfDGYKHp3/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" />
+    </a>
+    <a href="https://youtube.com/@futbol_code-fc?si=OWh3PFdQX2sU8dYd" target="_blank" aria-label="YouTube">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" />
+    </a>
+  </div>
+</body>
+</html>

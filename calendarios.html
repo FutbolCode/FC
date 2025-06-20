@@ -115,15 +115,14 @@
       scroll-behavior: smooth;
       padding: 1rem 0.5rem;
       width: 100%;
+
+      /* Ocultar scroll */
+      -ms-overflow-style: none;  /* IE y Edge */
+      scrollbar-width: none;  /* Firefox */
     }
 
     .league-buttons::-webkit-scrollbar {
-      display: none;
-    }
-
-    .league-buttons {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+      display: none;  /* Chrome, Safari y Opera */
     }
 
     .league-buttons button {
@@ -204,11 +203,11 @@
     }
 
     .team {
-      text-align: right;
+      text-align: center;
     }
 
     .vs {
-      text-align: center;
+      text-align: left;
       color: var(--dorado);
       font-weight: bold;
     }
@@ -262,49 +261,45 @@
       }
     }
 
-/* Botón flotante moderno con ícono PayPal y texto "Donar"*/
+    /* Botón flotante moderno con ícono PayPal y texto "Donar" */
+    .paypal-floating-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ffc439;
+      color: #111;
+      border-radius: 50px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-family: sans-serif;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      z-index: 9999;
+    }
 
-<style>
-  .paypal-floating-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #ffc439;
-    color: #111;
-    border-radius: 50px;
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    font-family: sans-serif;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    z-index: 9999;
-  }
+    .paypal-floating-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    }
 
-  .paypal-floating-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-  }
+    .paypal-floating-btn img {
+      width: 24px;
+      height: 24px;
+    }
+  </style>
+</head>
 
-  .paypal-floating-btn img {
-    width: 24px;
-    height: 24px;
-  }
-</style>
 
-<a class="paypal-floating-btn" href="https://www.paypal.com/donate?hosted_button_id=ID_AQUI" target="_blank" aria-label="Donar con PayPal">
+<body>
+
+<a class="paypal-floating-btn" href="https://www.paypal.com/donate?hosted_button_id=L5P74QDRJU4WL" target="_blank" aria-label="Donar con PayPal" rel="noopener noreferrer">
   <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" alt="PayPal" />
   Donar
 </a>
-
-
-
-  </style>
-</head>
-<body>
 
   <header>
     <img src="Publicaciones/logo.png" alt="Logo Futbol Code FC" />
@@ -319,207 +314,438 @@
     <a href="historias.html#historias">Historias</a>
   </nav>
 
-  <div class="league-bar-container">
-    <button class="scroll-arrow scroll-left" onclick="scrollLeagues(-200)">&#8249;</button>
-    <div class="league-buttons" id="leagueScroll">
-      <button onclick="showLeague('resumen-general')" class="active">Proximos Partidos</button>
-      <button onclick="showLeague('mundialclubes')">Mundial de Clubes</button>
-      <button onclick="showLeague('laliga')">LaLiga</button>
-      <button onclick="showLeague('premier')">Premier League</button>
-      <button onclick="showLeague('seriea')">Serie A</button>
-      <button onclick="showLeague('bundesliga')">Bundesliga</button>
-      <button onclick="showLeague('ligue1')">Ligue 1</button>
-      <button onclick="showLeague('ligaportugal')">Liga Portugal</button>
-      <button onclick="showLeague('eredivisie')">Eredivisie</button>
-      <button onclick="showLeague('ucl')">Champions League</button>
-      <button onclick="showLeague('uel')">Europa League</button>
-      <button onclick="showLeague('uecl')">Conference League</button>
-      <button onclick="showLeague('supercopauefa')">Supercopa UEFA</button>
-      <button onclick="showLeague('euro')">Eurocopa</button>
-      <button onclick="showLeague('nationsleague')">Nations League UEFA</button>
-      <button onclick="showLeague('eliminatoriasuefa')">Eliminatorias UEFA</button>
-      <button onclick="showLeague('brasileirao')">Brasileirao</button>
-      <button onclick="showLeague('ligaargentina')">Liga Argentina</button>
-      <button onclick="showLeague('libertadores')">Libertadores</button>
-      <button onclick="showLeague('sudamericana')">Sudamericana</button>
-      <button onclick="showLeague('copaamerica')">Copa América</button>
-      <button onclick="showLeague('eliminatoriasconmebol')">Eliminatorias Conmebol</button>
-      <button onclick="showLeague('ligamx')">Liga MX</button>
-      <button onclick="showLeague('mls')">MLS</button>
-      <button onclick="showLeague('concachampions')">Concachampions</button>
-      <button onclick="showLeague('leaguescup')">Leagues Cup</button>
-      <button onclick="showLeague('copaoro')">Copa Oro</button>
-      <button onclick="showLeague('nationsconcacaf')">Nations League Concacaf</button>
-      <button onclick="showLeague('eliminatoriasconcacaf')">Eliminatorias Concacaf</button>
-      <button onclick="showLeague('saudi')">Saudi Pro League</button>
-      <button onclick="showLeague('mundial')">Mundial</button>
-      <button onclick="showLeague('olimpicos')">Juegos Olímpicos</button>
-      <button onclick="showLeague('amistosos')">Amistosos</button>
-      <button onclick="showLeague('mundialfemenino')">Mundial Femenino</button>
-      <button onclick="showLeague('uclfemenina')">Champions League Femenina</button>
+  <div class="league-bar-container" aria-label="Selector de ligas">
+    <button type="button" class="scroll-arrow scroll-left" onclick="scrollLeagues(-200)" aria-label="Desplazar ligas a la izquierda">&#8249;</button>
+    <div class="league-buttons" id="leagueScroll" role="list">
+      <button type="button" onclick="showLeague('resumen-general')" class="active" role="listitem" aria-pressed="true">Proximos Partidos</button>
+      <button type="button" onclick="showLeague('mundialclubes')" role="listitem" aria-pressed="false">Mundial de Clubes</button>
+      <button type="button" onclick="showLeague('laliga')" role="listitem" aria-pressed="false">LaLiga</button>
+      <button type="button" onclick="showLeague('premier')" role="listitem" aria-pressed="false">Premier League</button>
+      <button type="button" onclick="showLeague('seriea')" role="listitem" aria-pressed="false">Serie A</button>
+      <button type="button" onclick="showLeague('bundesliga')" role="listitem" aria-pressed="false">Bundesliga</button>
+      <button type="button" onclick="showLeague('ligue1')" role="listitem" aria-pressed="false">Ligue 1</button>
+      <button type="button" onclick="showLeague('ligaportugal')" role="listitem" aria-pressed="false">Liga Portugal</button>
+      <button type="button" onclick="showLeague('eredivisie')" role="listitem" aria-pressed="false">Eredivisie</button>
+      <button type="button" onclick="showLeague('ucl')" role="listitem" aria-pressed="false">Champions League</button>
+      <button type="button" onclick="showLeague('uel')" role="listitem" aria-pressed="false">Europa League</button>
+      <button type="button" onclick="showLeague('uecl')" role="listitem" aria-pressed="false">Conference League</button>
+      <button type="button" onclick="showLeague('supercopauefa')" role="listitem" aria-pressed="false">Supercopa UEFA</button>
+      <button type="button" onclick="showLeague('euro')" role="listitem" aria-pressed="false">Eurocopa</button>
+      <button type="button" onclick="showLeague('nationsleague')" role="listitem" aria-pressed="false">Nations League UEFA</button>
+      <button type="button" onclick="showLeague('eliminatoriasuefa')" role="listitem" aria-pressed="false">Eliminatorias UEFA</button>
+      <button type="button" onclick="showLeague('brasileirao')" role="listitem" aria-pressed="false">Brasileirao</button>
+      <button type="button" onclick="showLeague('ligaargentina')" role="listitem" aria-pressed="false">Liga Argentina</button>
+      <button type="button" onclick="showLeague('libertadores')" role="listitem" aria-pressed="false">Libertadores</button>
+      <button type="button" onclick="showLeague('sudamericana')" role="listitem" aria-pressed="false">Sudamericana</button>
+      <button type="button" onclick="showLeague('copaamerica')" role="listitem" aria-pressed="false">Copa América</button>
+      <button type="button" onclick="showLeague('eliminatoriasconmebol')" role="listitem" aria-pressed="false">Eliminatorias Conmebol</button>
+      <button type="button" onclick="showLeague('ligamx')" role="listitem" aria-pressed="false">Liga MX</button>
+      <button type="button" onclick="showLeague('mls')" role="listitem" aria-pressed="false">MLS</button>
+      <button type="button" onclick="showLeague('concachampions')" role="listitem" aria-pressed="false">Concachampions</button>
+      <button type="button" onclick="showLeague('leaguescup')" role="listitem" aria-pressed="false">Leagues Cup</button>
+      <button type="button" onclick="showLeague('copaoro')" role="listitem" aria-pressed="false">Copa Oro</button>
+      <button type="button" onclick="showLeague('nationsconcacaf')" role="listitem" aria-pressed="false">Nations League Concacaf</button>
+      <button type="button" onclick="showLeague('eliminatoriasconcacaf')" role="listitem" aria-pressed="false">Eliminatorias Concacaf</button>
+      <button type="button" onclick="showLeague('saudi')" role="listitem" aria-pressed="false">Saudi Pro League</button>
+      <button type="button" onclick="showLeague('mundial')" role="listitem" aria-pressed="false">Mundial</button>
+      <button type="button" onclick="showLeague('olimpicos')" role="listitem" aria-pressed="false">Juegos Olímpicos</button>
+      <button type="button" onclick="showLeague('amistosos')" role="listitem" aria-pressed="false">Amistosos</button>
+      <button type="button" onclick="showLeague('mundialfemenino')" role="listitem" aria-pressed="false">Mundial Femenino</button>
+      <button type="button" onclick="showLeague('uclfemenina')" role="listitem" aria-pressed="false">Champions League Femenina</button>
     </div>
-    <button class="scroll-arrow scroll-right" onclick="scrollLeagues(200)">&#8250;</button>
+    <button type="button" class="scroll-arrow scroll-right" onclick="scrollLeagues(200)" aria-label="Desplazar ligas a la derecha">&#8250;</button>
   </div>
 
 <main>
-  
-<!-- sección: Mundial de Clubes (fase de grupos completa) -->
-<section id="mundialclubes" class="league" style="display: none;">
-  <!-- Grupo A -->
-  <div class="match-day"><h2>Grupo A (14–23 jun)</h2>
 
-    <div class="match-row"><div class="match-time">14‑Jun 20:00</div><div class="team">Al Ahly</div><div class="vs">0 vs 0</div><div class="team">Inter Miami</div></div>
+  <!-- Sección: Mundial de Clubes (fase de grupos completa) -->
+  <section id="mundialclubes" class="league" style="display: none;" aria-label="Calendario Mundial de Clubes fase de grupos">
+    
+    <!-- Grupo A -->
+    <div class="match-day" aria-label="Grupo A (14 a 23 junio)">
+      <h2>Grupo A (14–23 jun)</h2>
+      <div class="match-row" role="listitem" aria-label="14 de junio, 20:00: Al Ahly 0 contra Inter Miami 0">
+        <div class="match-time">14‑Jun 20:00</div>
+        <div class="team">Al Ahly</div>
+        <div class="score">0 - 0</div>
+        <div class="team right">Inter Miami</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="14 de junio, 23:00: Palmeiras 0 contra Porto 0">
+        <div class="match-time">14‑Jun 23:00</div>
+        <div class="team">Palmeiras</div>
+        <div class="score">0 - 0</div>
+        <div class="team right">Porto</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="19 de junio, 12:00: Palmeiras 2 contra Al Ahly 0">
+        <div class="match-time">19‑Jun 12:00</div>
+        <div class="team">Palmeiras</div>
+        <div class="score">2 - 0</div>
+        <div class="team right">Al Ahly</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="19 de junio, 15:00: Inter Miami 2 contra Porto 1">
+        <div class="match-time">19‑Jun 15:00</div>
+        <div class="team">Inter Miami</div>
+        <div class="score">2 - 1</div>
+        <div class="team right">Porto</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="23 de junio, 21:00: Inter Miami contra Palmeiras">
+        <div class="match-time">23‑Jun 21:00</div>
+        <div class="team">Inter Miami</div>
+        <div class="score">vs</div>
+        <div class="team right">Palmeiras</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="23 de junio, 21:00: Porto contra Al Ahly">
+        <div class="match-time">23‑Jun 21:00</div>
+        <div class="team">Porto</div>
+        <div class="score">vs</div>
+        <div class="team right">Al Ahly</div>
+      </div>
+    </div>
 
-    <div class="match-row"><div class="match-time">14‑Jun 23:00</div><div class="team">Palmeiras</div><div class="vs">0 vs 0</div><div class="team">Porto</div></div>
+    <!-- Grupo B -->
+    <div class="match-day" aria-label="Grupo B (15 a 23 junio)">
+      <h2>Grupo B (15–23 jun)</h2>
+      <div class="match-row" role="listitem" aria-label="15 de junio, 21:00: PSG 4 contra Atlético Madrid 0">
+        <div class="match-time">15‑Jun 21:00</div>
+        <div class="team">PSG</div>
+        <div class="score">4 - 0</div>
+        <div class="team right">Atlético Madrid</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="15 de junio, 03:00: Botafogo contra Seattle Sounders">
+        <div class="match-time">15‑Jun 03:00</div>
+        <div class="team">Botafogo</div>
+        <div class="score">2 - 1</div>
+        <div class="team right">Seattle Sounders</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="19 de junio, 15:00: Seattle Sounders contra Atlético Madrid">
+        <div class="match-time">19‑Jun 15:00</div>
+        <div class="team">Seattle Sounders</div>
+        <div class="score">1 - 3</div>
+        <div class="team right">Atlético Madrid</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="19 de junio, 18:00: PSG contra Botafogo">
+        <div class="match-time">19‑Jun 18:00</div>
+        <div class="team">PSG</div>
+        <div class="score">0 - 1</div>
+        <div class="team right">Botafogo</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="23 de junio, 15:00: Seattle Sounders contra PSG">
+        <div class="match-time">23‑Jun 15:00</div>
+        <div class="team">Seattle Sounders</div>
+        <div class="score">vs</div>
+        <div class="team right">PSG</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="23 de junio, 15:00: Atlético Madrid contra Botafogo">
+        <div class="match-time">23‑Jun 15:00</div>
+        <div class="team">Atlético Madrid</div>
+        <div class="score">vs</div>
+        <div class="team right">Botafogo</div>
+      </div>
+    </div>
 
-    <div class="match-row"><div class="match-time">19‑Jun 12:00</div><div class="team">Palmeiras</div><div class="vs">2 vs 0</div><div class="team">Al Ahly</div></div>
+    <!-- Grupo C -->
+    <div class="match-day" aria-label="Grupo C (15 a 24 junio)">
+      <h2>Grupo C (15–24 jun)</h2>
+      <div class="match-row" role="listitem" aria-label="15 de junio, 17:00: Bayern Múnich contra Auckland City">
+        <div class="match-time">15‑Jun 17:00</div>
+        <div class="team">Bayern Múnich</div>
+        <div class="score">10 - 0</div>
+        <div class="team right">Auckland City</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="16 de junio, 23:00: Boca Juniors contra Benfica">
+        <div class="match-time">16‑Jun 23:00</div>
+        <div class="team">Boca Juniors</div>
+        <div class="score">2 - 2</div>
+        <div class="team right">Benfica</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="20 de junio, 02:00: Benfica contra Auckland City">
+        <div class="match-time">20‑Jun 02:00</div>
+        <div class="team">Benfica</div>
+        <div class="score">vs</div>
+        <div class="team right">Auckland City</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="20 de junio, 23:00: Bayern Múnich contra Boca Juniors">
+        <div class="match-time">20‑Jun 23:00</div>
+        <div class="team">Bayern Múnich</div>
+        <div class="score">vs</div>
+        <div class="team right">Boca Juniors</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="24 de junio, 15:00: Auckland City contra Boca Juniors">
+        <div class="match-time">24‑Jun 15:00</div>
+        <div class="team">Auckland City</div>
+        <div class="score">vs</div>
+        <div class="team right">Boca Juniors</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="24 de junio, 15:00: Benfica contra Bayern Múnich">
+        <div class="match-time">24‑Jun 15:00</div>
+        <div class="team">Benfica</div>
+        <div class="score">vs</div>
+        <div class="team right">Bayern Múnich</div>
+      </div>
+    </div>
 
-    <div class="match-row"><div class="match-time">19‑Jun 15:00</div><div class="team">Inter Miami</div><div class="vs">2 vs 1</div><div class="team">Porto</div></div>
+    <!-- Grupo D -->
+    <div class="match-day" aria-label="Grupo D (16 a 24 junio)">
+      <h2>Grupo D (16–24 jun)</h2>
+      <div class="match-row" role="listitem" aria-label="16 de junio, 20:00: Chelsea contra LAFC">
+        <div class="match-time">16‑Jun 20:00</div>
+        <div class="team">Chelsea</div>
+        <div class="score">2 - 0</div>
+        <div class="team right">LAFC</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="16 de junio, 23:00: Flamengo contra Espérance">
+        <div class="match-time">16‑Jun 23:00</div>
+        <div class="team">Flamengo</div>
+        <div class="score">2 - 0</div>
+        <div class="team right">Espérance</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="22 de junio, 02:00: Espérance contra Chelsea">
+        <div class="match-time">22‑Jun 02:00</div>
+        <div class="team">Espérance</div>
+        <div class="score">vs</div>
+        <div class="team right">Chelsea</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="22 de junio, 19:00: LAFC contra Flamengo">
+        <div class="match-time">22‑Jun 19:00</div>
+        <div class="team">LAFC</div>
+        <div class="score">vs</div>
+        <div class="team right">Flamengo</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="25 de junio, 02:00: Espérance contra Flamengo">
+        <div class="match-time">25‑Jun 02:00</div>
+        <div class="team">Espérance</div>
+        <div class="score">vs</div>
+        <div class="team right">Flamengo</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="25 de junio, 02:00: Chelsea contra LAFC">
+        <div class="match-time">25‑Jun 02:00</div>
+        <div class="team">Chelsea</div>
+        <div class="score">vs</div>
+        <div class="team right">LAFC</div>
+      </div>
+    </div>
 
-    <div class="match-row"><div class="match-time">23‑Jun 21:00</div><div class="team">Inter Miami</div><div class="vs">vs</div><div class="team">Palmeiras</div></div>
+    <!-- Grupo E -->
+    <div class="match-day" aria-label="Grupo E (17 a 25 junio)">
+      <h2>Grupo E (17–25 jun)</h2>
+      <div class="match-row" role="listitem" aria-label="17 de junio, 18:00: River Plate contra Urawa Red Diamonds">
+        <div class="match-time">17‑Jun 18:00</div>
+        <div class="team">River Plate</div>
+        <div class="score">3 - 1</div>
+        <div class="team right">Urawa Red Diamonds</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="17 de junio, 21:00: Monterrey contra Inter Milan">
+        <div class="match-time">17‑Jun 21:00</div>
+        <div class="team">Monterrey</div>
+        <div class="score">1 - 1</div>
+        <div class="team right">Inter Milan</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="21 de junio, 18:00: Inter Milan contra Urawa Red Diamonds">
+        <div class="match-time">21‑Jun 18:00</div>
+        <div class="team">Inter Milan</div>
+        <div class="score">vs</div>
+        <div class="team right">Urawa Red Diamonds</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="21 de junio, 21:00: River Plate contra Monterrey">
+        <div class="match-time">21‑Jun 21:00</div>
+        <div class="team">River Plate</div>
+        <div class="score">vs</div>
+        <div class="team right">Monterrey</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="25 de junio, 18:00: Inter Milan contra River Plate">
+        <div class="match-time">25‑Jun 18:00</div>
+        <div class="team">Inter Milan</div>
+        <div class="score">vs</div>
+        <div class="team right">River Plate</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="25 de junio, 21:00: Urawa Red Diamonds contra Monterrey">
+        <div class="match-time">25‑Jun 21:00</div>
+        <div class="team">Urawa Red Diamonds</div>
+        <div class="score">vs</div>
+        <div class="team right">Monterrey</div>
+      </div>
+    </div>
 
-    <div class="match-row"><div class="match-time">23‑Jun 21:00</div><div class="team">Porto</div><div class="vs">vs</div><div class="team">Al Ahly</div></div>
-  </div>
+    <!-- Grupo F -->
+    <div class="match-day" aria-label="Grupo F (18 a 26 junio)">
+      <h2>Grupo F (18–26 jun)</h2>
+      <div class="match-row" role="listitem" aria-label="18 de junio, 18:00: Fluminense contra Borussia Dortmund">
+        <div class="match-time">18‑Jun 18:00</div>
+        <div class="team">Fluminense</div>
+        <div class="score">0 - 0</div>
+        <div class="team right">Borussia Dortmund</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="18 de junio, 21:00: Ulsan HD contra Mamelodi Sundowns">
+        <div class="match-time">18‑Jun 21:00</div>
+        <div class="team">Ulsan HD</div>
+        <div class="score">0 - 1</div>
+        <div class="team right">Mamelodi Sundowns</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="22 de junio, 18:00: Mamelodi Sundowns contra Fluminense">
+        <div class="match-time">22‑Jun 18:00</div>
+        <div class="team">Mamelodi Sundowns</div>
+        <div class="score">vs</div>
+        <div class="team right">Fluminense</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="22 de junio, 21:00: Borussia Dortmund contra Ulsan HD">
+        <div class="match-time">22‑Jun 21:00</div>
+        <div class="team">Borussia Dortmund</div>
+        <div class="score">vs</div>
+        <div class="team right">Ulsan HD</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="26 de junio, 18:00: Mamelodi Sundowns contra Borussia Dortmund">
+        <div class="match-time">26‑Jun 18:00</div>
+        <div class="team">Mamelodi Sundowns</div>
+        <div class="score">vs</div>
+        <div class="team right">Borussia Dortmund</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="26 de junio, 21:00: Fluminense contra Ulsan HD">
+        <div class="match-time">26‑Jun 21:00</div>
+        <div class="team">Fluminense</div>
+        <div class="score">vs</div>
+        <div class="team right">Ulsan HD</div>
+      </div>
+    </div>
 
-  <!-- Grupo B -->
-  <div class="match-day"><h2>Grupo B (15–23 jun)</h2>
-    <div class="match-row"><div class="match-time">15‑Jun 21:00</div><div class="team">PSG - 4</div><div class="vs">vs</div><div class="team">0 - Atlético Madrid</div></div>
-    <div class="match-row"><div class="match-time">15‑Jun 03:00</div><div class="team">Botafogo</div><div class="vs">vs</div><div class="team">Seattle Sounders</div></div>
-    <div class="match-row"><div class="match-time">19‑Jun 15:00</div><div class="team">Seattle Sounders</div><div class="vs">vs</div><div class="team">Atlético Madrid</div></div>
-    <div class="match-row"><div class="match-time">19‑Jun 18:00</div><div class="team">PSG</div><div class="vs">vs</div><div class="team">Botafogo</div></div>
-    <div class="match-row"><div class="match-time">23‑Jun 15:00</div><div class="team">Seattle Sounders</div><div class="vs">vs</div><div class="team">PSG</div></div>
-    <div class="match-row"><div class="match-time">23‑Jun 15:00</div><div class="team">Atlético Madrid</div><div class="vs">vs</div><div class="team">Botafogo</div></div>
-  </div>
-
-  <!-- Grupo C -->
-  <div class="match-day"><h2>Grupo C (15–24 jun)</h2>
-    <div class="match-row"><div class="match-time">15‑Jun 17:00</div><div class="team">Bayern Múnich</div><div class="vs">vs</div><div class="team">Auckland City</div></div>
-    <div class="match-row"><div class="match-time">16‑Jun 23:00</div><div class="team">Boca Juniors</div><div class="vs">vs</div><div class="team">Benfica</div></div>
-    <div class="match-row"><div class="match-time">20‑Jun 02:00</div><div class="team">Benfica</div><div class="vs">vs</div><div class="team">Auckland City</div></div>
-    <div class="match-row"><div class="match-time">20‑Jun 23:00</div><div class="team">Bayern Múnich</div><div class="vs">vs</div><div class="team">Boca Juniors</div></div>
-    <div class="match-row"><div class="match-time">24‑Jun 15:00</div><div class="team">Auckland City</div><div class="vs">vs</div><div class="team">Boca Juniors</div></div>
-    <div class="match-row"><div class="match-time">24‑Jun 15:00</div><div class="team">Benfica</div><div class="vs">vs</div><div class="team">Bayern Múnich</div></div>
-  </div>
-
-  <!-- Grupo D -->
-  <div class="match-day"><h2>Grupo D (16–24 jun)</h2>
-    <div class="match-row"><div class="match-time">16‑Jun 20:00</div><div class="team">Chelsea</div><div class="vs">vs</div><div class="team">LAFC</div></div>
-    <div class="match-row"><div class="match-time">16‑Jun 23:00</div><div class="team">Flamengo</div><div class="vs">vs</div><div class="team">Espérance</div></div>
-    <div class="match-row"><div class="match-time">22‑Jun 02:00</div><div class="team">Espérance</div><div class="vs">vs</div><div class="team">Chelsea</div></div>
-    <div class="match-row"><div class="match-time">22‑Jun 19:00</div><div class="team">LAFC</div><div class="vs">vs</div><div class="team">Flamengo</div></div>
-    <div class="match-row"><div class="match-time">25‑Jun 02:00</div><div class="team">Espérance</div><div class="vs">vs</div><div class="team">Flamengo</div></div>
-    <div class="match-row"><div class="match-time">25‑Jun 02:00</div><div class="team">Chelsea</div><div class="vs">vs</div><div class="team">LAFC</div></div>
-  </div>
+    <!-- Grupo G -->
+    <div class="match-day" aria-label="Grupo G (18 a 26 junio)">
+      <h2>Grupo G (18–26 jun)</h2>
+      <div class="match-row" role="listitem" aria-label="18 de junio, 15:00: Manchester City contra Wydad AC">
+        <div class="match-time">18‑Jun 15:00</div>
+        <div class="team">Manchester City</div>
+        <div class="score">2 - 0</div>
+        <div class="team right">Wydad AC</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="18 de junio, 18:00: Al Ain contra Juventus">
+        <div class="match-time">18‑Jun 18:00</div>
+        <div class="team">Al Ain</div>
+        <div class="score">0 - 5</div>
+        <div class="team right">Juventus</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="22 de junio, 15:00: Juventus contra Wydad AC">
+        <div class="match-time">22‑Jun 15:00</div>
+        <div class="team">Juventus</div>
+        <div class="score">vs</div>
+        <div class="team right">Wydad AC</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="22 de junio, 18:00: Manchester City contra Al Ain">
+        <div class="match-time">22‑Jun 18:00</div>
+        <div class="team">Manchester City</div>
+        <div class="score">vs</div>
+        <div class="team right">Al Ain</div>
+     
 
 
-  <!-- Grupo E -->
-  <div class="match-day"><h2>Grupo E (17–25 jun)</h2>
-    <div class="match-row"><div class="match-time">17‑Jun 18:00</div><div class="team">River Plate</div><div class="vs">vs</div><div class="team">Urawa Red Diamonds</div></div>
-    <div class="match-row"><div class="match-time">17‑Jun 21:00</div><div class="team">Monterrey</div><div class="vs">vs</div><div class="team">Inter Milan</div></div>
-    <div class="match-row"><div class="match-time">21‑Jun 18:00</div><div class="team">Inter Milan</div><div class="vs">vs</div><div class="team">Urawa Red Diamonds</div></div>
-    <div class="match-row"><div class="match-time">21‑Jun 21:00</div><div class="team">River Plate</div><div class="vs">vs</div><div class="team">Monterrey</div></div>
-    <div class="match-row"><div class="match-time">25‑Jun 18:00</div><div class="team">Inter Milan</div><div class="vs">vs</div><div class="team">River Plate</div></div>
-    <div class="match-row"><div class="match-time">25‑Jun 21:00</div><div class="team">Urawa Red Diamonds</div><div class="vs">vs</div><div class="team">Monterrey</div></div>
-  </div>
+      <!-- Grupo H -->
+    <div class="match-day" aria-label="Grupo H (18 a 26 junio)">
+      <h2>Grupo H (18–26 jun)</h2>
+      <div class="match-row" role="listitem" aria-label="18 de junio, 18:00: Real Madrid contra Al-Hilal">
+        <div class="match-time">18‑Jun 18:00</div>
+        <div class="team">Real Madrid</div>
+        <div class="score">1 - 1</div>
+        <div class="team right">Al‑Hilal</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="18 de junio, 21:00: Pachuca contra Red Bull Salzburg">
+        <div class="match-time">18‑Jun 21:00</div>
+        <div class="team">Pachuca</div>
+        <div class="score">1 - 2</div>
+        <div class="team right">Red Bull Salzburg</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="22 de junio, 18:00: Real Madrid contra Pachuca">
+        <div class="match-time">22‑Jun 18:00</div>
+        <div class="team">Real Madrid</div>
+        <div class="score">vs</div>
+        <div class="team right">Pachuca</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="22 de junio, 21:00: Red Bull Salzburg contra Al-Hilal">
+        <div class="match-time">22‑Jun 21:00</div>
+        <div class="team">Red Bull Salzburg</div>
+        <div class="score">vs</div>
+        <div class="team right">Al‑Hilal</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="26 de junio, 18:00: Al-Hilal contra Pachuca">
+        <div class="match-time">26‑Jun 18:00</div>
+        <div class="team">Al‑Hilal</div>
+        <div class="score">vs</div>
+        <div class="team right">Pachuca</div>
+      </div>
+      <div class="match-row" role="listitem" aria-label="26 de junio, 21:00: Red Bull Salzburg contra Real Madrid">
+        <div class="match-time">26‑Jun 21:00</div>
+        <div class="team">Red Bull Salzburg</div>
+        <div class="score">vs</div>
+        <div class="team right">Real Madrid</div>
+      </div>
+    </div>
 
-  <!-- Grupo F -->
-  <div class="match-day"><h2>Grupo F (18–26 jun)</h2>
-    <div class="match-row"><div class="match-time">18‑Jun 18:00</div><div class="team">Fluminense</div><div class="vs">vs</div><div class="team">Borussia Dortmund</div></div>
-    <div class="match-row"><div class="match-time">18‑Jun 21:00</div><div class="team">Ulsan HD</div><div class="vs">vs</div><div class="team">Mamelodi Sundowns</div></div>
-    <div class="match-row"><div class="match-time">22‑Jun 18:00</div><div class="team">Mamelodi Sundowns</div><div class="vs">vs</div><div class="team">Fluminense</div></div>
-    <div class="match-row"><div class="match-time">22‑Jun 21:00</div><div class="team">Borussia Dortmund</div><div class="vs">vs</div><div class="team">Ulsan HD</div></div>
-    <div class="match-row"><div class="match-time">26‑Jun 18:00</div><div class="team">Mamelodi Sundowns</div><div class="vs">vs</div><div class="team">Borussia Dortmund</div></div>
-    <div class="match-row"><div class="match-time">26‑Jun 21:00</div><div class="team">Fluminense</div><div class="vs">vs</div><div class="team">Ulsan HD</div></div>
-  </div>
-
-  <!-- Grupo G -->
-  <div class="match-day"><h2>Grupo G (18–26 jun)</h2>
-    <div class="match-row"><div class="match-time">18‑Jun 15:00</div><div class="team">Manchester City</div><div class="vs">vs</div><div class="team">Wydad AC</div></div>
-    <div class="match-row"><div class="match-time">18‑Jun 18:00</div><div class="team">Al Ain</div><div class="vs">vs</div><div class="team">Juventus</div></div>
-    <div class="match-row"><div class="match-time">22‑Jun 15:00</div><div class="team">Juventus</div><div class="vs">vs</div><div class="team">Wydad AC</div></div>
-    <div class="match-row"><div class="match-time">22‑Jun 18:00</div><div class="team">Manchester City</div><div class="vs">vs</div><div class="team">Al Ain</div></div>
-    <div class="match-row"><div class="match-time">26‑Jun 15:00</div><div class="team">Al Ain</div><div class="vs">vs</div><div class="team">Wydad AC</div></div>
-    <div class="match-row"><div class="match-time">26‑Jun 18:00</div><div class="team">Juventus</div><div class="vs">vs</div><div class="team">Manchester City</div></div>
-  </div>
-
-  <!-- Grupo H -->
-  <div class="match-day"><h2>Grupo H (18–26 jun)</h2>
-    <div class="match-row"><div class="match-time">18‑Jun 18:00</div><div class="team">Real Madrid</div><div class="vs">vs</div><div class="team">Al‑Hilal</div></div>
-    <div class="match-row"><div class="match-time">18‑Jun 21:00</div><div class="team">Pachuca</div><div class="vs">vs</div><div class="team">Red Bull Salzburg</div></div>
-    <div class="match-row"><div class="match-time">22‑Jun 18:00</div><div class="team">Real Madrid</div><div class="vs">vs</div><div class="team">Pachuca</div></div>
-    <div class="match-row"><div class="match-time">22‑Jun 21:00</div><div class="team">Red Bull Salzburg</div><div class="vs">vs</div><div class="team">Al‑Hilal</div></div>
-    <div class="match-row"><div class="match-time">26‑Jun 18:00</div><div class="team">Al‑Hilal</div><div class="vs">vs</div><div class="team">Pachuca</div></div>
-    <div class="match-row"><div class="match-time">26‑Jun 21:00</div><div class="team">Red Bull Salzburg</div><div class="vs">vs</div><div class="team">Real Madrid</div></div>
   </div>
 
 </section>
 
 
 
-  <!-- LaLiga (ya incluido, aquí solo como ejemplo) -->
-<section id="laliga" class="league" style="display: none;">
-  <div class="match-day">
-    <h2>Jornada 1 - LaLiga</h2>
-    <div class="match-row">
-      <div class="match-time">20:00</div>
-      <div class="team">Real Madrid - 2</div>
-      <div class="vs">vs</div>
-      <div class="team">5 - Barcelona</div>
-    </div>
-    <div class="match-row">
-      <div class="match-time">18:30</div>
-      <div class="team">Valencia</div>
-      <div class="vs">vs</div>
-      <div class="team">Sevilla</div>
-    </div>
-  </div>
-</section>
+    <!-- Sección: LaLiga -->
+    <section id="laliga" class="league" style="display: none;" aria-label="Calendario LaLiga">
+      <div class="match-day" aria-label="Jornada 1 - LaLiga">
+        <h2>Jornada 1 - LaLiga</h2>
+        <div class="match-row" role="listitem" aria-label="20:00: Real Madrid 2 contra Barcelona 5">
+          <div class="match-time">20:00</div>
+          <div class="team">Real Madrid - 2</div>
+          <div class="score">vs</div>
+          <div class="team right">5 - Barcelona</div>
+        </div>
+        <div class="match-row" role="listitem" aria-label="18:30: Valencia contra Sevilla">
+          <div class="match-time">18:30</div>
+          <div class="team">Valencia</div>
+          <div class="score">vs</div>
+          <div class="team right">Sevilla</div>
+        </div>
+      </div>
+    </section>
 
-<!-- Serie A -->
-<section id="seriea" class="league" style="display: none;">
-  <div class="match-day">
-    <h2>Giornata 1 - Serie A</h2>
-    <div class="match-row">
-      <div class="match-time">21:00</div>
-      <div class="team">Juventus</div>
-      <div class="vs">vs</div>
-      <div class="team">Inter</div>
-    </div>
-    <div class="match-row">
-      <div class="match-time">19:00</div>
-      <div class="team">Milan</div>
-      <div class="vs">vs</div>
-      <div class="team">Napoli</div>
-    </div>
-  </div>
-</section>
+    <!-- Sección: Serie A -->
+    <section id="seriea" class="league" style="display: none;" aria-label="Calendario Serie A">
+      <div class="match-day" aria-label="Giornata 1 - Serie A">
+        <h2>Giornata 1 - Serie A</h2>
+        <div class="match-row" role="listitem" aria-label="21:00: Juventus contra Inter">
+          <div class="match-time">21:00</div>
+          <div class="team">Juventus</div>
+          <div class="score">vs</div>
+          <div class="team right">Inter</div>
+        </div>
+        <div class="match-row" role="listitem" aria-label="19:00: Milan contra Napoli">
+          <div class="match-time">19:00</div>
+          <div class="team">Milan</div>
+          <div class="score">vs</div>
+          <div class="team right">Napoli</div>
+        </div>
+      </div>
+    </section>
 
-<!-- Bundesliga -->
-<section id="bundesliga" class="league" style="display: none;">
-  <div class="match-day">
-    <h2>Spieltag 1 - Bundesliga</h2>
-    <div class="match-row">
-      <div class="match-time">15:30</div>
-      <div class="team">Bayern Múnich</div>
-      <div class="vs">vs</div>
-      <div class="team">Dortmund</div>
-    </div>
-  </div>
-</section>
+    <!-- Sección: Bundesliga -->
+    <section id="bundesliga" class="league" style="display: none;" aria-label="Calendario Bundesliga">
+      <div class="match-day" aria-label="Spieltag 1 - Bundesliga">
+        <h2>Spieltag 1 - Bundesliga</h2>
+        <div class="match-row" role="listitem" aria-label="15:30: Bayern Múnich contra Dortmund">
+          <div class="match-time">15:30</div>
+          <div class="team">Bayern Múnich</div>
+          <div class="score">vs</div>
+          <div class="team right">Dortmund</div>
+        </div>
+      </div>
+    </section>
 
-<!-- Ligue 1 -->
-<section id="ligue1" class="league" style="display: none;">
-  <div class="match-day">
-    <h2>Journée 1 - Ligue 1</h2>
-    <div class="match-row">
-      <div class="match-time">20:45</div>
-      <div class="team">PSG</div>
-      <div class="vs">vs</div>
-      <div class="team">Lyon</div>
-    </div>
-  </div>
-</section>
-
+    <!-- Sección: Ligue 1 -->
+    <section id="ligue1" class="league" style="display: none;" aria-label="Calendario Ligue 1">
+      <div class="match-day" aria-label="Journée 1 - Ligue 1">
+        <h2>Journée 1 - Ligue 1</h2>
+        <div class="match-row" role="listitem" aria-label="20:45: PSG contra Lyon">
+          <div class="match-time">20:45</div>
+          <div class="team">PSG</div>
+          <div class="score">vs</div>
+          <div class="team right">Lyon</div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>

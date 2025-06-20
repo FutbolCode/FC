@@ -248,6 +248,45 @@
       border-radius: 10px;
       object-fit: cover;
     }
+
+/* Botón flotante moderno con ícono PayPal y texto "Donar"*/
+
+<style>
+  .paypal-floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ffc439;
+    color: #111;
+    border-radius: 50px;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-family: sans-serif;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 9999;
+  }
+
+  .paypal-floating-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  }
+
+  .paypal-floating-btn img {
+    width: 24px;
+    height: 24px;
+  }
+</style>
+
+<a class="paypal-floating-btn" href="https://www.paypal.com/donate?hosted_button_id=ID_AQUI" target="_blank" aria-label="Donar con PayPal">
+  <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" alt="PayPal" />
+  Donar
+</a>
+    
   </style>
 </head>
 <body>
@@ -316,15 +355,7 @@
   </main>
 
   <footer>
-    &copy; 2025 Futbol Code FC. Todos los derechos reservados.
-
-    <form action="https://www.paypal.com/donate" method="post" target="_top">
-<input type="hidden" name="hosted_button_id" value="L5P74QDRJU4WL" />
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-<img alt="" border="0" src="https://www.paypal.com/en_DO/i/scr/pixel.gif" width="1" height="1" />
-</form>
-
-  
+    &copy; 2025 Futbol Code FC. Todos los derechos reservados.  
   </footer>
 
   <div class="social-floating">

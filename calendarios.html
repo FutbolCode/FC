@@ -253,7 +253,7 @@
   <header>
     <img src="Publicaciones/logo.png" alt="Logo Futbol Code FC" />
     <h1>Calendarios de Temporada</h1>
-    <p>Consulta los partidos jugados y por jugar en las principales ligas del mundo</p>
+    <p>Consulta los partidos jugados y por jugar en las principales ligas TOP del mundo</p>
   </header>
 
   <nav>
@@ -311,11 +311,17 @@
 <section id="mundialclubes" class="league" style="display: none;">
   <!-- Grupo A -->
   <div class="match-day"><h2>Grupo A (14–23 jun)</h2>
-    <div class="match-row"><div class="match-time">14‑Jun 20:00</div><div class="team">Al Ahly</div><div class="vs">vs</div><div class="team">Inter Miami</div></div>
-    <div class="match-row"><div class="match-time">14‑Jun 23:00</div><div class="team">Palmeiras</div><div class="vs">vs</div><div class="team">Porto</div></div>
-    <div class="match-row"><div class="match-time">19‑Jun 12:00</div><div class="team">Palmeiras</div><div class="vs">vs</div><div class="team">Al Ahly</div></div>
-    <div class="match-row"><div class="match-time">19‑Jun 15:00</div><div class="team">Inter Miami</div><div class="vs">vs</div><div class="team">Porto</div></div>
+
+    <div class="match-row"><div class="match-time">14‑Jun 20:00</div><div class="team">Al Ahly</div><div class="vs">0 vs 0</div><div class="team">Inter Miami</div></div>
+
+    <div class="match-row"><div class="match-time">14‑Jun 23:00</div><div class="team">Palmeiras</div><div class="vs">0 vs 0</div><div class="team">Porto</div></div>
+
+    <div class="match-row"><div class="match-time">19‑Jun 12:00</div><div class="team">Palmeiras</div><div class="vs">2 vs 0</div><div class="team">Al Ahly</div></div>
+
+    <div class="match-row"><div class="match-time">19‑Jun 15:00</div><div class="team">Inter Miami</div><div class="vs">2 vs 1</div><div class="team">Porto</div></div>
+
     <div class="match-row"><div class="match-time">23‑Jun 21:00</div><div class="team">Inter Miami</div><div class="vs">vs</div><div class="team">Palmeiras</div></div>
+
     <div class="match-row"><div class="match-time">23‑Jun 21:00</div><div class="team">Porto</div><div class="vs">vs</div><div class="team">Al Ahly</div></div>
   </div>
 
@@ -525,7 +531,7 @@
     currentLeagueIndex = (currentLeagueIndex + 1) % leagueIds.length;
     const nextLeagueId = leagueIds[currentLeagueIndex];
     showLeague(nextLeagueId);
-  }, 60000); // 60,000 ms = 1 minuto
+  }, 20000); // 60,000 ms = 1 minuto
 
   // Scroll lateral automático (cada 5 segundos)
   let scrollDirection = 1;

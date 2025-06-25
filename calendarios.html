@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Calendario de Ligas | Futbol Code FC</title>
   <style>
-    /* Tu estilo existente (sin cambios) */
     :root {
       --azul: #002147;
       --grana: #A50044;
@@ -38,12 +37,14 @@
     <h1>Calendarios de Temporada</h1>
     <p>Consulta los partidos jugados y por jugar en las principales ligas TOP del mundo</p>
   </header>
+  
   <nav>
     <a href="index.html#inicio">Inicio</a>
     <a href="calendarios.html#Calendario">Calendario</a>
     <a href="noticias.html#noticias">Noticias</a>
     <a href="historias.html#historias">Historias</a>
   </nav>
+
   <div class="league-buttons">
     <button onclick="getMatches(39)">Premier League</button>
     <button onclick="getMatches(140)">La Liga</button>
@@ -53,8 +54,12 @@
     <button onclick="getMatches(2)">Champions League</button>
     <button onclick="getMatches(372)">Mundial de Clubes</button>
   </div>
+
   <main></main>
-  <footer>&copy; 2025 Futbol Code FC. Todos los derechos reservados.</footer>
+
+  <footer>
+    &copy; 2025 Futbol Code FC. Todos los derechos reservados.
+  </footer>
 
   <script>
     const API_TOKEN = '1effd7cb4cb54198a3cc6cd0cf869e71';
@@ -63,64 +68,66 @@
       document.querySelector('main').innerHTML = '<p>Cargando partidos…</p>';
 
       try {
-        // Pedir partidos jugados
+        // Partidos jugados
         const resPlayed = await fetch(`https://v3.football.api-sports.io/fixtures?league=${leagueId}&season=${season}&status=FT`, {
           headers: { 'x-apisports-key': API_TOKEN }
         });
         const { response: played } = await resPlayed.json();
 
-        // Pedir partidos próximos
-        const resUp = await fetch(`https://v3.football.api-sports.io/fixtures?league=${leagueId}&season=${season}&status=NS`, {
+        // Partidos próximos
+        const resUpcoming = await fetch(`https://v3.football.api-sports.io/fixtures?league=${leagueId}&season=${season}&status=NS`, {
           headers: { 'x-apisports-key': API_TOKEN }
         });
-        const { response: upcoming } = await resUp.json();
+        const { response: upcoming } = await resUpcoming.json();
 
         document.querySelector('main').innerHTML = '';
 
         if (upcoming?.length) renderMatches(upcoming, "Próximos Partidos");
         if (played?.length) renderMatches(played, "Partidos Jugados");
 
-        if ((!upcoming?.length) && (!played?.length)) {
+        if (!upcoming?.length && !played?.length) {
           document.querySelector('main').innerHTML = '<p>No hay partidos disponibles.</p>';
         }
 
-      } catch (err) {
-        console.error(err);
+      } catch (error) {
+        console.error(error);
         document.querySelector('main').innerHTML = '<p>Error al cargar los partidos.</p>';
       }
     }
 
     function renderMatches(matches, title) {
       const main = document.querySelector("main");
-      const div = document.createElement("div");
-      div.classList.add("match-day");
-      const h2 = document.createElement("h2");
-      h2.textContent = title;
-      div.appendChild(h2);
+      const container = document.createElement("div");
+      container.classList.add("match-day");
 
-      matches.forEach(m => {
-        const row = document.createElement("div");
-        row.classList.add("match-row");
-        const date = new Date(m.fixture.date).toLocaleString('es-ES', {
+      const heading = document.createElement("h2");
+      heading.textContent = title;
+      container.appendChild(heading);
+
+      matches.forEach(match => {
+        const date = new Date(match.fixture.date).toLocaleString('es-ES', {
           day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit'
         });
-        const score = m.fixture.status.short === 'FT'
-          ? `${m.goals.home} - ${m.goals.away}`
-          : '';
+
+        const score = match.fixture.status.short === 'FT'
+          ? `${match.goals.home} - ${match.goals.away}` : '';
+
+        const row = document.createElement("div");
+        row.classList.add("match-row");
         row.innerHTML = `
           <div class="match-time">${date}</div>
-          <div class="team">${m.teams.home.name}</div>
+          <div class="team">${match.teams.home.name}</div>
           <div class="vs">vs</div>
-          <div class="team">${m.teams.away.name}</div>
+          <div class="team">${match.teams.away.name}</div>
           <div class="competition">${score}</div>
         `;
-        div.appendChild(row);
+        container.appendChild(row);
       });
 
-      main.appendChild(div);
+      main.appendChild(container);
     }
 
-    // Carga inicial (opcional), por ejemplo Premier League
+    // Carga inicial (por ejemplo Premier League)
     getMatches(39);
   </script>
 </body>

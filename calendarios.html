@@ -62,7 +62,7 @@
   </footer>
 
   <script>
-    const API_TOKEN = '1effd7cb4cb54198a3cc6cd0cf869e71';
+    const API_TOKEN = '8a67e548a4msh7a81828ae25a533p19718ajsn39f5cea833f9';
 
     async function getMatches(leagueId, season = '2023') {
       document.querySelector('main').innerHTML = '<p>Cargando partidos…</p>';
@@ -70,13 +70,13 @@
       try {
         // Partidos jugados
         const resPlayed = await fetch(`https://v3.football.api-sports.io/fixtures?league=${leagueId}&season=${season}&status=FT`, {
-          headers: { 'x-apisports-key': API_TOKEN }
+          headers: { 'x-apisports-key': '8a67e548a4msh7a81828ae25a533p19718ajsn39f5cea833f9' }
         });
         const { response: played } = await resPlayed.json();
 
         // Partidos próximos
         const resUpcoming = await fetch(`https://v3.football.api-sports.io/fixtures?league=${leagueId}&season=${season}&status=NS`, {
-          headers: { 'x-apisports-key': API_TOKEN }
+          headers: { 'x-apisports-key': '8a67e548a4msh7a81828ae25a533p19718ajsn39f5cea833f9' }
         });
         const { response: upcoming } = await resUpcoming.json();
 

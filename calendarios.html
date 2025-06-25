@@ -13,31 +13,74 @@
       --gris: #f4f4f4;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(to right, var(--azul), var(--grana)); color: var(--blanco); }
-    header { background-color: rgba(0, 0, 0, 0.6); padding: 1.5rem; text-align: center; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, var(--azul), var(--grana));
+      color: var(--blanco);
+    }
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 1.5rem;
+      text-align: center;
+    }
     header img { width: 150px; height: auto; margin-bottom: 1rem; }
-    nav { background-color: var(--azul); display: flex; justify-content: center; gap: 2rem; padding: 1rem 0; }
-    nav a { color: var(--dorado); text-decoration: none; font-weight: bold; transition: color 0.3s ease; }
+    nav {
+      background-color: var(--azul);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+    }
+    nav a {
+      color: var(--dorado);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
     nav a:hover { color: white; }
-    .league-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin: 1rem; }
-    .league-buttons button { background-color: var(--dorado); color: #000; border: none; padding: 0.5rem 1rem; border-radius: 20px; font-weight: bold; cursor: pointer; transition: background 0.3s; }
-    .league-buttons button:hover, .league-buttons button.active { background-color: #ffcc33; }
-    main { padding: 2rem; max-width: 1200px; margin: auto; }
-    .match-day { background-color: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 1rem; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.4); }
-    .match-day h2 { color: var(--dorado); margin-bottom: 1rem; border-bottom: 2px solid var(--dorado); padding-bottom: 0.5rem; }
-    .match-row { display: grid; grid-template-columns: 60px 1fr 20px 1fr 80px; align-items: center; gap: 1.5rem; padding: 0.25rem 0; border-bottom: 0.5px solid rgba(255,255,255,0.1); }
+    main {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .match-day {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .match-day h2 {
+      color: var(--dorado);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--dorado);
+      padding-bottom: 0.5rem;
+    }
+    .match-row {
+      display: grid;
+      grid-template-columns: 60px 1fr 20px 1fr 80px;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0.25rem 0;
+      border-bottom: 0.5px solid rgba(255,255,255,0.1);
+    }
     .match-time { font-weight: bold; }
     .vs { text-align: center; color: var(--dorado); font-weight: bold; }
-    footer { background-color: var(--grana); color: white; text-align: center; padding: 1rem; }
+    footer {
+      background-color: var(--grana);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
   </style>
 </head>
 <body>
   <header>
     <img src="Publicaciones/logo.png" alt="Logo Futbol Code FC" />
-    <h1>Calendarios de Temporada</h1>
-    <p>Consulta los partidos jugados y por jugar en las principales ligas TOP del mundo</p>
+    <h1>Calendario del Mundial de Clubes</h1>
+    <p>Consulta los partidos jugados y por jugar del Mundial de Clubes</p>
   </header>
-  
+
   <nav>
     <a href="index.html#inicio">Inicio</a>
     <a href="calendarios.html#Calendario">Calendario</a>
@@ -45,17 +88,9 @@
     <a href="historias.html#historias">Historias</a>
   </nav>
 
-  <div class="league-buttons">
-    <button onclick="getMatches(39)">Premier League</button>
-    <button onclick="getMatches(140)">La Liga</button>
-    <button onclick="getMatches(135)">Serie A</button>
-    <button onclick="getMatches(78)">Bundesliga</button>
-    <button onclick="getMatches(61)">Ligue 1</button>
-    <button onclick="getMatches(2)">Champions League</button>
-    <button onclick="getMatches(372)">Mundial de Clubes</button>
-  </div>
-
-  <main></main>
+  <main>
+    <p>Cargando partidos del Mundial de Clubes...</p>
+  </main>
 
   <footer>
     &copy; 2025 Futbol Code FC. Todos los derechos reservados.
@@ -64,20 +99,19 @@
   <script>
     const API_TOKEN = '8a67e548a4msh7a81828ae25a533p19718ajsn39f5cea833f9';
 
-    async function getMatches(leagueId, season = '2023') {
+    async function getMatches(leagueId = 372, season = '2023') {
       document.querySelector('main').innerHTML = '<p>Cargando partidos…</p>';
 
       try {
-        // Partidos jugados
-        const resPlayed = await fetch(`https://v3.football.api-sports.io/fixtures?league=${leagueId}&season=${season}&status=FT`, {
-          headers: { 'x-apisports-key': '8a67e548a4msh7a81828ae25a533p19718ajsn39f5cea833f9' }
-        });
+        const headers = {
+          'X-RapidAPI-Key': API_TOKEN,
+          'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+        };
+
+        const resPlayed = await fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?league=${leagueId}&season=${season}&status=FT`, { headers });
         const { response: played } = await resPlayed.json();
 
-        // Partidos próximos
-        const resUpcoming = await fetch(`https://v3.football.api-sports.io/fixtures?league=${leagueId}&season=${season}&status=NS`, {
-          headers: { 'x-apisports-key': '8a67e548a4msh7a81828ae25a533p19718ajsn39f5cea833f9' }
-        });
+        const resUpcoming = await fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?league=${leagueId}&season=${season}&status=NS`, { headers });
         const { response: upcoming } = await resUpcoming.json();
 
         document.querySelector('main').innerHTML = '';
@@ -89,8 +123,8 @@
           document.querySelector('main').innerHTML = '<p>No hay partidos disponibles.</p>';
         }
 
-      } catch (error) {
-        console.error(error);
+      } catch (err) {
+        console.error(err);
         document.querySelector('main').innerHTML = '<p>Error al cargar los partidos.</p>';
       }
     }
@@ -127,8 +161,8 @@
       main.appendChild(container);
     }
 
-    // Carga inicial (por ejemplo Premier League)
-    getMatches(39);
+    // Carga automática del Mundial de Clubes (ID 372)
+    getMatches();
   </script>
 </body>
 </html>

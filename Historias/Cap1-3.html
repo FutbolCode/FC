@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Capítulos 1 al 3 de la historia de Lionel Messi - Futbol Code FC">
+  <title>Messi: Capítulos 1-3 | Futbol Code FC</title>
+  <link rel="stylesheet" href="../estilos.css" />
+  <style>
+    :root {
+      --azul: #002147;
+      --grana: #A50044;
+      --dorado: #FDB913;
+      --blanco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(to right, var(--azul), var(--grana));
+      color: var(--blanco);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    header, nav, footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+    }
+
+    nav a, .nav-buttons a {
+      margin: 0 0.8rem;
+      text-decoration: none;
+      color: var(--dorado);
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover, .nav-buttons a:hover {
+      color: white;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      color: var(--dorado);
+      border-bottom: 2px solid var(--dorado);
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      text-align: center;
+    }
+
+    .chapter {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      align-items: center;
+    }
+
+    .chapter img,
+    .chapter iframe {
+      width: 50%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .chapter p {
+      grid-column: span 2;
+      margin-top: 1rem;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .nav-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .nav-buttons a {
+      background-color: var(--dorado);
+      color: black;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .nav-buttons a:hover {
+      background-color: #ffcc33;
+    }
+
+    footer {
+      margin-top: 3rem;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .chapter {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      .chapter iframe {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>La Historia de Messi - Capítulos 1 al 3</h1>
+  </header>
+
+  <nav>
+    <a href="../index.html#inicio">Inicio</a>
+    <a href="../historias.html">Volver a Historias</a>
+  </nav>
+
+  <main>
+
+    <section class="chapter">
+      <h2>1. Los primeros pasos de Messi en Newell’s</h2>
+      <p>Lionel Andrés Messi dio sus primeros pasos como futbolista en Newell’s Old Boys, su club de infancia en Rosario, Argentina. Desde muy pequeño, mostró una habilidad excepcional con el balón en los pies. Su apodo era "La Pulga" y ya dejaba atónitos a los que lo veían jugar en las divisiones infantiles.</p>
+      <img src="Publicaciones/messi_newells.jpg" alt="Messi en Newell's Old Boys" />
+    </section>
+
+    <section class="chapter">
+      <h2>2. Llegada de Messi a la MASIA del FCB</h2>
+      <p>Con solo 13 años, Messi llegó a Barcelona para unirse a La Masia, la famosa cantera del FC Barcelona. Fue una apuesta arriesgada del club catalán, que además cubrió su tratamiento hormonal. Allí se formó no solo como jugador, sino también como persona.</p>
+      <img src="Publicaciones/messi_masia.jpg" alt="Messi en La Masia" />
+      <iframe src="https://www.youtube.com/embed/RaQvhgTu7QY?si=SnnuWcNhV0-Zv4Qb" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <section class="chapter">
+      <h2>3. Debut de Messi en el Barça contra el Espanyol</h2>
+      <p>El 16 de octubre de 2004, con solo 17 años, Lionel Messi hizo su debut oficial con el primer equipo del FC Barcelona frente al RCD Espanyol. Aquel día comenzaba una nueva era para el club y para el fútbol mundial.</p>
+      <img src="Publicaciones/messi_debut.jpg" alt="Messi debut en el Barça" />
+      <iframe src="https://www.youtube.com/embed/5iWf1yczpTg?si=2ionpjYqnDE6502k" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <div class="nav-buttons">
+      <a href="#" style="visibility: hidden;">Anterior</a>
+      <a href="../historias.html">Inicio</a>
+      <a href="Cap4-6.html">Siguiente</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Futbol Code FC. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

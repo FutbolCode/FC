@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Calendario de Ligas | Futbol Code FC</title>
+  <title>LaLiga 2024-2025 | Futbol Code FC</title>
   <style>
     :root {
       --azul: #002147;
@@ -77,8 +77,8 @@
 <body>
   <header>
     <img src="Publicaciones/logo.png" alt="Logo Futbol Code FC" />
-    <h1>Calendario del Mundial de Clubes</h1>
-    <p>Consulta los partidos jugados y por jugar del Mundial de Clubes</p>
+    <h1>Calendario LaLiga 2024–2025</h1>
+    <p>Consulta los partidos jugados y por jugar de LaLiga (España)</p>
   </header>
 
   <nav>
@@ -89,7 +89,7 @@
   </nav>
 
   <main>
-    <p>Cargando partidos del Mundial de Clubes...</p>
+    <p>Cargando partidos de LaLiga 2024–25...</p>
   </main>
 
   <footer>
@@ -99,7 +99,7 @@
   <script>
     const API_TOKEN = '8a67e548a4msh7a81828ae25a533p19718ajsn39f5cea833f9';
 
-    async function getMatches(leagueId = 372, season = '2025') {
+    async function getMatches(leagueId = 140, season = '2024') {
       document.querySelector('main').innerHTML = '<p>Cargando partidos…</p>';
 
       try {
@@ -161,7 +161,7 @@
       main.appendChild(container);
     }
 
-    // Carga automática del Mundial de Clubes (ID 372)
+    // Carga automática de LaLiga (ID 140) - temporada 2024–25
     getMatches();
   </script>
 </body>

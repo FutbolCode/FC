@@ -52,15 +52,18 @@
       font-weight: bold;
       transition: color 0.3s ease;
     }
-
-    nav a:hover {
+    nav a:hover,
+    nav a:focus {
       color: white;
+      outline: 3px solid var(--dorado);
+      outline-offset: 2px;
     }
 
     main {
       padding: 2rem;
       max-width: 1200px;
       margin: auto;
+      role: main;
     }
 
     h1 {
@@ -104,9 +107,11 @@
       flex-direction: column;
     }
 
-    .historia-card:hover {
+    .historia-card:hover,
+    .historia-card:focus-within {
       transform: scale(1.03);
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      outline: none;
     }
 
     .historia-card img {
@@ -146,8 +151,10 @@
       transition: background 0.3s;
     }
 
-    .btn:hover {
+    .btn:hover,
+    .btn:focus {
       background-color: #ffcc33;
+      outline: none;
     }
 
     footer {
@@ -159,56 +166,48 @@
     }
 
     .social-floating {
-  position: fixed;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background-color: rgba(0, 0, 0, 0.3);
-  padding: 0.5rem;
-  border-radius: 8px 0 0 8px;
-  z-index: 999;
-}
-
-.social-floating a img {
-  width: 20px;
-  height: 20px;
-  transition: transform 0.3s ease, filter 0.3s ease, drop-shadow 0.3s ease;
-  filter: invert(1);
-}
-
-.social-floating a:hover img {
-  transform: scale(1.25);
-  filter: none;
-}
-
-.social-floating a[aria-label="Instagram"]:hover img {
-  filter: drop-shadow(0 0 5px #E4405F);
-}
-
-.social-floating a[aria-label="Facebook"]:hover img {
-  filter: drop-shadow(0 0 5px #1877F2);
-}
-
-.social-floating a[aria-label="YouTube"]:hover img {
-  filter: drop-shadow(0 0 5px #FF0000);
-}
-
-.social-floating a[aria-label="TikTok"]:hover img {
-  filter: drop-shadow(0 0 5px #69C9D0);
-}
-
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5rem;
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 0.5rem;
+      border-radius: 8px 0 0 8px;
+      z-index: 999;
     }
 
+    .social-floating a img {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s ease, filter 0.3s ease, drop-shadow 0.3s ease;
+      filter: invert(1);
+    }
 
-/* Botón flotante moderno con ícono PayPal y texto "Donar" */
+    .social-floating a:hover img {
+      transform: scale(1.25);
+      filter: none;
+    }
+
+    .social-floating a[aria-label="Instagram"]:hover img {
+      filter: drop-shadow(0 0 5px #E4405F);
+    }
+
+    .social-floating a[aria-label="Facebook"]:hover img {
+      filter: drop-shadow(0 0 5px #1877F2);
+    }
+
+    .social-floating a[aria-label="YouTube"]:hover img {
+      filter: drop-shadow(0 0 5px #FF0000);
+    }
+
+    .social-floating a[aria-label="TikTok"]:hover img {
+      filter: drop-shadow(0 0 5px #69C9D0);
+    }
+
+    /* Botón flotante moderno con ícono PayPal y texto "Donar" */
     .paypal-floating-btn {
       position: fixed;
       bottom: 20px;
@@ -237,7 +236,6 @@
       width: 24px;
       height: 24px;
     }
-
   </style>
 </head>
 <body>
@@ -247,90 +245,126 @@
   Donar
 </a>
 
-  <header>
-    <img src="Publicaciones/logo.png" alt="Logo de Futbol Code FC" loading="lazy" />
-    <h1>Futbol Code FC</h1>
-    <p>Revive los momentos más épicos del fútbol mundial</p>
-  </header>
+<header>
+  <img src="Publicaciones/logo.png" alt="Logo de Futbol Code FC" loading="lazy" />
+  <h1>Futbol Code FC</h1>
+  <p>Revive los momentos más épicos del fútbol mundial</p>
+</header>
 
-  <nav role="navigation" aria-label="Navegación principal">
-    <a href="index.html#inicio">Inicio</a>
-    <a href="calendarios.html#Calendario">Calendario</a>
-    <a href="noticias.html#noticias">Noticias</a>
-    <a href="historias.html#historias">Historias</a>
-  </nav>
+<nav role="navigation" aria-label="Navegación principal">
+  <a href="index.html#inicio">Inicio</a>
+  <a href="calendarios.html#Calendario">Calendario</a>
+  <a href="noticias.html#noticias">Noticias</a>
+  <a href="historias.html#historias">Historias</a>
+</nav>
 
-  <main>
-    <h1>Historias Inolvidables</h1>
+<main role="main">
+  <h1 id="historias">Historias Inolvidables</h1>
 
-    <div class="search-bar">
-      <input type="text" id="busqueda" placeholder="Buscar una historia..." oninput="filtrarHistorias()" aria-label="Buscar historia" />
-    </div>
+  <div class="search-bar">
+    <input type="text" id="busqueda" placeholder="Buscar una historia..." aria-label="Buscar historia" />
+  </div>
 
-    <section class="historias-grid" id="historiasContainer">
-      <article class="historia-card">
-        <img src="Publicaciones/maracanazo.jpg" alt="Uruguay vence a Brasil en 1950" loading="lazy" />
-        <div class="historia-content">
-          <h3>El Maracanazo</h3>
-          <p>Uruguay venció a Brasil en la final de 1950 ante más de 200 mil espectadores.</p>
-          <a href="historias/maracanazo.html" class="btn">Leer más</a>
-        </div>
-      </article>
+  <section class="historias-grid" id="historiasContainer">
+    <article class="historia-card" tabindex="0">
+      <img src="Historias/Publicaciones/messi.jpg" alt="Messi celebrando con sus equipos" loading="lazy" />
+      <div class="historia-content">
+        <h3>Messi, el D10S de la Pelota</h3>
+        <p>La Magnífica Historia de Leo Messi. "El GOAT".</p>
+        <a href="Historias/Cap1-3.html" class="btn">Leer más</a>
+      </div>
+    </article>
 
-      <article class="historia-card">
-        <img src="Publicaciones/pele1958.jpeg" alt="Pelé brillando en 1958" loading="lazy" />
-        <div class="historia-content">
-          <h3>Pelé en 1958</h3>
-          <p>Con solo 17 años, Pelé maravilló al mundo en el Mundial de Suecia.</p>
-          <a href="historias/pele1958.html" class="btn">Leer más</a>
-        </div>
-      </article>
+    <article class="historia-card" tabindex="0">
+      <img src="Publicaciones/maracanazo.jpg" alt="Uruguay vence a Brasil en 1950" loading="lazy" />
+      <div class="historia-content">
+        <h3>El Maracanazo</h3>
+        <p>Uruguay venció a Brasil en la final de 1950 ante más de 200 mil espectadores.</p>
+        <a href="historias/maracanazo.html" class="btn">Leer más</a>
+      </div>
+    </article>
 
-      <article class="historia-card">
-        <img src="Publicaciones/iniesta2010.jpeg" alt="Gol de Iniesta en la final de 2010" loading="lazy" />
-        <div class="historia-content">
-          <h3>España 2010</h3>
-          <p>El gol de Iniesta que le dio a España su primera Copa del Mundo.</p>
-          <a href="historias/iniesta2010.html" class="btn">Leer más</a>
-        </div>
-      </article>
-    </section>
+    <article class="historia-card" tabindex="0">
+      <img src="Publicaciones/pele1958.jpeg" alt="Pelé brillando en 1958" loading="lazy" />
+      <div class="historia-content">
+        <h3>Pelé en 1958</h3>
+        <p>Con solo 17 años, Pelé maravilló al mundo en el Mundial de Suecia.</p>
+        <a href="historias/pele1958.html" class="btn">Leer más</a>
+      </div>
+    </article>
 
-    <div style="text-align: left; margin-top: 1.5rem;">
-      <a href="#historias" class="btn">Volver arriba</a>
-    </div>
-  </main>
+    <article class="historia-card" tabindex="0">
+      <img src="Publicaciones/iniesta2010.jpeg" alt="Gol de Iniesta en la final de 2010" loading="lazy" />
+      <div class="historia-content">
+        <h3>España 2010</h3>
+        <p>El gol de Iniesta que le dio a España su primera Copa del Mundo.</p>
+        <a href="historias/iniesta2010.html" class="btn">Leer más</a>
+      </div>
+    </article>
+  </section>
 
-  <footer>
-    &copy; 2025 Futbol Code FC. Todos los derechos reservados.  
-  </footer>
+  <div style="text-align: left; margin-top: 1.5rem;">
+    <a href="#historias" class="btn">Volver arriba</a>
+  </div>
+</main>
 
-  <div class="social-floating">
-  <a href="https://www.instagram.com/futbol_code_fc?igsh=cTNnZ2dpMHczMHhq&utm_source=qr" target="_blank" aria-label="Instagram">
+<footer>
+  &copy; 2025 Futbol Code FC. Todos los derechos reservados.  
+</footer>
+
+<div class="social-floating">
+  <a href="https://www.instagram.com/futbol_code_fc?igsh=cTNnZ2dpMHczMHhq&utm_source=qr" target="_blank" aria-label="Instagram" rel="noopener noreferrer">
     <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" />
   </a>
-  <a href="https://www.facebook.com/share/1AfDGYKHp3/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
+  <a href="https://www.facebook.com/share/1AfDGYKHp3/?mibextid=wwXIfr" target="_blank" aria-label="Facebook" rel="noopener noreferrer">
     <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" />
   </a>
-  <a href="https://youtube.com/@futbol_code-fc?si=OWh3PFdQX2sU8dYd" target="_blank" aria-label="YouTube">
+  <a href="https://youtube.com/@futbol_code-fc?si=OWh3PFdQX2sU8dYd" target="_blank" aria-label="YouTube" rel="noopener noreferrer">
     <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" />
   </a>
-  <a href="https://www.tiktok.com/@futbol.code.fc?_t=ZS-8wuVjCwoHhK&_r=1" target="_blank" aria-label="TikTok">
+  <a href="https://www.tiktok.com/@futbol.code.fc?_t=ZS-8wuVjCwoHhK&_r=1" target="_blank" aria-label="TikTok" rel="noopener noreferrer">
     <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok" />
   </a>
 </div>
 
-  <script>
-    function filtrarHistorias() {
-      const input = document.getElementById('busqueda');
-      const filtro = input.value.toLowerCase();
-      const historias = document.querySelectorAll('.historia-card');
+<script>
+  // Debounce para optimizar búsqueda
+  function debounce(func, wait = 300) {
+    let timeout;
+    return function(...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+  }
 
-      historias.forEach(card => {
-        const texto = card.innerText.toLowerCase();
-        card.style.display = texto.includes(filtro) ? 'flex' : 'none';
-      });
+  const filtrarHistoriasDebounced = debounce(() => {
+    const input = document.getElementById('busqueda');
+    const filtro = input.value.toLowerCase();
+    const historias = document.querySelectorAll('.historia-card');
+
+    let anyVisible = false;
+
+    historias.forEach(card => {
+      const texto = card.innerText.toLowerCase();
+      const isVisible = texto.includes(filtro);
+      card.style.display = isVisible ? 'flex' : 'none';
+      if (isVisible) anyVisible = true;
+    });
+
+    let mensajeNoResultados = document.getElementById('noResultados');
+    if (!mensajeNoResultados) {
+      mensajeNoResultados = document.createElement('p');
+      mensajeNoResultados.id = 'noResultados';
+      mensajeNoResultados.style.color = 'var(--dorado)';
+      mensajeNoResultados.style.textAlign = 'center';
+      mensajeNoResultados.style.marginTop = '1rem';
+      document.querySelector('main').appendChild(mensajeNoResultados);
     }
-  </script>
-</body>
-</html>
+    mensajeNoResultados.textContent = anyVisible ? '' : 'No se encontraron resultados.';
+  });
+
+  document.getElementById('busqueda').addEvent
+  Listener('input', filtrarHistoriasDebounced);
+</script>
+
+</body> </html>
